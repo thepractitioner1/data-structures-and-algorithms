@@ -8,8 +8,8 @@ public class Main {
 
         var tree = new BinarySearchTree();
         int[] array = {10, 5, 15, 6, 1, 8, 12, 18, 17};
-        for(int i = 0; i<array.length; i++){
-            tree.insert(array[i]);
+        for (int j : array) {
+            tree.insert(j);
         }
 
         System.out.println(tree.toString());
