@@ -47,11 +47,58 @@ public class BinarySearchTree {
         traversePreOrder(root);
     }
 
+    public void traverseInOrder(){
+        traverseInOrder(root);
+    }
+
+    public void traversePostOrder(){
+        traversePostOrder(root);
+    }
+
+    public int height(){
+        return height(root);
+    }
+
+    public int min(){
+        return min(root);
+    }
+
+    private void traverseInOrder( Node root){
+        if(root == null) return;
+        traverseInOrder(root.leftChild);
+        System.out.println(root.value);
+        traverseInOrder(root.rightChild);
+    }
+
+    private void traversePostOrder( Node root){
+        if(root == null) return;
+        traversePostOrder(root.leftChild);
+        traversePostOrder(root.rightChild);
+        System.out.println(root.value);
+    }
+
     private void traversePreOrder(Node root) {
         if(root == null) return;
         System.out.println(root.value);
         traversePreOrder(root.leftChild);
         traversePreOrder(root.rightChild);
+    }
+
+     private int height(Node root){
+        if(root == null) return -1;
+         if (isLeaf(root)) return 0;
+         return 1 + Math.max(height(root.leftChild), height(root.rightChild));
+     }
+
+     private int min(Node root){
+         if (isLeaf(root)) return root.value;
+         var left = min(root.leftChild);
+         var right = min(root.rightChild);
+         return Math.min(Math.min(left, right), root.value);
+     }
+
+    private boolean isLeaf(Node node) {
+        return node.leftChild == null && node.rightChild == null;
     }
 
 
@@ -63,7 +110,6 @@ public class BinarySearchTree {
         public Node(int value) {
             this.value = value;
         }
-
 
     }
 
