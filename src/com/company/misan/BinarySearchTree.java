@@ -97,6 +97,13 @@ public class BinarySearchTree {
          return Math.min(Math.min(left, right), root.value);
      }
 
+     int minBinarySearchTree(Node root){
+         while (root.leftChild != null) {
+             root = root.leftChild;
+         }
+         return (root.value);
+     }
+
     private boolean isLeaf(Node node) {
         return node.leftChild == null && node.rightChild == null;
     }

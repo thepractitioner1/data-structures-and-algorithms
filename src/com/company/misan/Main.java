@@ -1,5 +1,8 @@
 package com.company.misan;
 
+import java.math.BigDecimal;
+import java.util.Optional;
+import java.util.OptionalDouble;
 import java.util.Queue;
 
 public class Main {
@@ -23,7 +26,7 @@ public class Main {
 //        System.out.println(tree.toString());
         System.out.println(tree.find(15));
 //        tree.traversePreOrder();
-        System.out.println(tree.height());
+//        System.out.println(tree.height());
         System.out.println(tree.min());
 
 
