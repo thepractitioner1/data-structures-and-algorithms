@@ -1,6 +1,7 @@
 package com.company.misan;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
 import java.util.Optional;
 import java.util.OptionalDouble;
 import java.util.Queue;
@@ -14,6 +15,11 @@ public class Main {
 //        for (int j : array) {
 //            tree.insert(j);
 //        }
+
+        Integer[] myArray = new Integer[] {1, 7, 5, 9, 2, 12, 3};
+        int difference = 2;
+        int result = HashTableExercises.countPairsWithDiff(myArray, difference);
+        System.out.println(result);
 
         tree.insert(7);
         tree.insert(4);
