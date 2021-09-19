@@ -1,11 +1,5 @@
 package com.company.misan;
 
-import java.math.BigDecimal;
-import java.util.Arrays;
-import java.util.Optional;
-import java.util.OptionalDouble;
-import java.util.Queue;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -22,10 +16,13 @@ public class Main {
         tree.insert(1);
         tree.insert(6);
         tree.insert(8);
-        tree.insert(10);
+        tree.insert(0);
 
 
-        System.out.println(tree.find(15));
+
+
+        System.out.println(tree.find(10));
+        tree.traversePostOrder();
         System.out.println(tree.min());
 
 
