@@ -1,7 +1,7 @@
 package com.company.misan;
 
 
-public class BinarySearchTree {
+public class Tree {
     private Node root;
 
    public Node insert(int value){
@@ -39,7 +39,7 @@ public class BinarySearchTree {
        return false;
    }
 
-   public void  traversePreOrder(){
+    public void  traversePreOrder(){
        traversePreOrder(root);
    }
     public void  traverseInOrder(){
@@ -55,6 +55,35 @@ public class BinarySearchTree {
     public int min(){ return min(root);}
     public int minBinarySearchTree(){
        return minBinarySearchTree(root);
+    }
+
+    public boolean equals(Tree other){
+       if (other == null) return  false;
+       return equals(root, other.root);
+    }
+
+    public boolean validateBinarySearchTree(){
+       return validateBinarySearchTree(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+    public void swapRoot(){
+       var temp = root.leftChild;
+       root.leftChild = root.rightChild;
+       root.rightChild = temp;
+    }
+
+    private boolean validateBinarySearchTree(Node root, int lowerBound, int upperBound){
+       if(root == null)  return true;
+       return  (root.value>lowerBound && root.value< upperBound) && validateBinarySearchTree(root.leftChild, Integer.MIN_VALUE, root.value) &&
+               validateBinarySearchTree(root.rightChild, root.value, upperBound );
+    }
+
+    private boolean equals(Node first, Node second){
+       if(first == null && second == null) return true;
+       if(first != null && second != null)
+           return  first.value == second.value && equals(first.leftChild, second.leftChild)
+           && equals(first.rightChild, second.rightChild);
+
+       return  false;
     }
 
    private void traversePreOrder(Node root){
