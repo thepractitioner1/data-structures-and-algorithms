@@ -1,6 +1,8 @@
 package com.company.misan;
 
 
+import java.util.ArrayList;
+
 public class Tree {
     private Node root;
 
@@ -56,6 +58,11 @@ public class Tree {
     public int minBinarySearchTree(){
        return minBinarySearchTree(root);
     }
+    public ArrayList<Integer> nodesAtDistanceK(int distance){
+       var list = new ArrayList<Integer>();
+        getNodesAtDistanceK(root, distance, list);
+        return list;
+    }
 
     public boolean equals(Tree other){
        if (other == null) return  false;
@@ -69,6 +76,18 @@ public class Tree {
        var temp = root.leftChild;
        root.leftChild = root.rightChild;
        root.rightChild = temp;
+    }
+
+    private void getNodesAtDistanceK(Node root, int distance, ArrayList<Integer> list){
+
+       if(root == null) return;
+       if(distance == 0){
+           list.add(root.value);
+           return;
+       }
+
+       getNodesAtDistanceK(root.leftChild, distance - 1, list);
+       getNodesAtDistanceK(root.rightChild, distance - 1, list);
     }
 
     private boolean validateBinarySearchTree(Node root, int lowerBound, int upperBound){
