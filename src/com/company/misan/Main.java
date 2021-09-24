@@ -24,7 +24,8 @@ public class Main {
         System.out.println(tree.find(10));
         tree.traversePostOrder();
         tree.swapRoot();
-        System.out.println(tree.nodesAtDistanceK(7).toString());
+        System.out.println(tree.getNodesAtDistanceK(7).toString());
+        tree.traverseLevelOrder();
 
 
     }

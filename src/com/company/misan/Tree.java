@@ -58,7 +58,7 @@ public class Tree {
     public int minBinarySearchTree(){
        return minBinarySearchTree(root);
     }
-    public ArrayList<Integer> nodesAtDistanceK(int distance){
+    public ArrayList<Integer> getNodesAtDistanceK(int distance){
        var list = new ArrayList<Integer>();
         getNodesAtDistanceK(root, distance, list);
         return list;
@@ -148,6 +148,14 @@ public class Tree {
 
     private boolean isLeaf(Node node) {
         return node.leftChild == null && node.rightChild == null;
+    }
+
+    public void traverseLevelOrder(){
+       for(var i = 0; i <= height(); i++){
+           for(var list: getNodesAtDistanceK(i)){
+               System.out.println(list);
+           }
+       }
     }
 
 
