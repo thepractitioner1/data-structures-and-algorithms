@@ -78,6 +78,16 @@ public class Tree {
        root.rightChild = temp;
     }
 
+    public int size(){
+       return size(root);
+    }
+
+    private int size(Node root){
+       if(root  == null) return 0;
+
+       return 1 + (size(root.leftChild) + size(root.rightChild));
+    }
+
     private void getNodesAtDistanceK(Node root, int distance, ArrayList<Integer> list){
 
        if(root == null) return;

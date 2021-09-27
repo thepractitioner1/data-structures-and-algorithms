@@ -26,6 +26,7 @@ public class Main {
         tree.swapRoot();
         System.out.println(tree.getNodesAtDistanceK(7).toString());
         tree.traverseLevelOrder();
+        System.out.println(tree.size());
 
 
     }
