@@ -27,6 +27,8 @@ public class Main {
         System.out.println(tree.getNodesAtDistanceK(7).toString());
         tree.traverseLevelOrder();
         System.out.println(tree.size());
+        System.out.println(tree.countLeaves());
+        System.out.println(tree.maxRecurision());
 
 
     }

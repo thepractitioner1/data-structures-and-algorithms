@@ -82,6 +82,28 @@ public class Tree {
        return size(root);
     }
 
+    public int maxRecurision(){
+       return maxRecursion(root);
+    }
+
+    public int countLeaves(){
+       return countLeaves(root);
+    }
+
+    public int countLeaves(Node root){
+       if(root == null) return 0;
+
+       if(isLeaf(root)) return 1;
+       return countLeaves(root.leftChild) + countLeaves(root.rightChild);
+    }
+
+
+    private int maxRecursion(Node root){
+       if (root == null) return 0;
+       if(root.rightChild == null) return root.value;
+       return maxRecursion(root.rightChild);
+    }
+
     private int size(Node root){
        if(root  == null) return 0;
 
