@@ -97,11 +97,25 @@ public class Tree {
        return countLeaves(root.leftChild) + countLeaves(root.rightChild);
     }
 
+    public boolean contains(int value) {
+        return contains(root, value);
+    }
+
 
     private int maxRecursion(Node root){
        if (root == null) return 0;
        if(root.rightChild == null) return root.value;
        return maxRecursion(root.rightChild);
+    }
+
+    private boolean contains(Node root, int value) {
+        if (root == null)
+            return false;
+
+        if (root.value == value)
+            return true;
+
+        return contains(root.leftChild, value) || contains(root.rightChild, value);
     }
 
     private int size(Node root){
