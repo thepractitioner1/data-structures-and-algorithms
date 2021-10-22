@@ -12,7 +12,7 @@ public class AVLTrees {
     }
 
 
-    private int height(AVLNode root){
+    private int  height(AVLNode root){
         if(root == null) return -1;
         if( root.rightChild == null && root.leftChild == null) return 0;
         return Math.max(height(root.leftChild), height(root.rightChild)) + 1;
@@ -24,24 +24,47 @@ public class AVLTrees {
         }
         if(value < root.value) root.leftChild =  insert(value, root.leftChild);
         else root.rightChild = insert(value, root.rightChild);
-        balance(root);
+
         root.height = height(root);
+        return balance(root);
+    }
+
+    private AVLNode balance(AVLNode root){
+        if (isLeftHeavy(root)) {
+
+            if(balanceFactor(root.leftChild ) < 0) root.rightChild = leftRotate(root.leftChild);
+           root = rightRotate(root);
+        }
+        else if(isRightHeavy(root)){
+            if (balanceFactor(root.rightChild )> 0) root.leftChild = rightRotate(root.rightChild);
+            root  = leftRotate(root);
+        }
+
         return root;
     }
 
-    private void balance(AVLNode root){
-        if (isLeftHeavy(root)) {
-            if(balanceFactor(root.leftChild ) < 0) System.out.println("Left Rotate " + root.leftChild.value);
-            System.out.println("Right rotate" + root.value);
-        }
-        else if(isRightHeavy(root)){
-            if (balanceFactor(root.rightChild )> 0) System.out.println("Right rotate " + root.rightChild.value);
-
-            System.out.println("Left Rotate " + root.value);
-        }
+    private AVLNode leftRotate(AVLNode root){
+        var newRoot = root.rightChild;
+        root.rightChild = newRoot.leftChild;
+        newRoot.leftChild = root;
+        resetHeight(root);
+        resetHeight(newRoot);
+        return newRoot;
     }
 
 
+    private AVLNode rightRotate(AVLNode root){
+        var newRoot = root.leftChild;
+        root.leftChild = newRoot.rightChild;
+        newRoot.rightChild = root;
+        resetHeight(root);
+        resetHeight(newRoot);
+        return newRoot;
+    }
+
+    private void resetHeight(AVLNode root){
+        root.height = height(root);
+    }
 
     private boolean isLeftHeavy(AVLNode node){
         return balanceFactor(node) > 1;

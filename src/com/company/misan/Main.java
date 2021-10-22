@@ -21,7 +21,7 @@ public class Main {
         var avlTrees = new AVLTrees();
         avlTrees.insert(10);
         avlTrees.insert(20);
-        avlTrees.insert(30);
+        avlTrees.insert(15);
 
 //        System.out.println(tree.find(10));
 //        tree.traversePostOrder();
@@ -32,6 +32,7 @@ public class Main {
 //        System.out.println(tree.countLeaves());
 //        System.out.println(tree.maxRecurision());
 //        System.out.println(DPUtils.fibronacci(7));
+//        System.out.println(DPUtils.gridTraveler(18, 18));
 
 
     }
