@@ -14,16 +14,26 @@ public class DPUtils {
         var memo = new HashMap<String, Long>();
         return gridTraveler(m, n, memo);
     }
-
-    public static boolean canSum(ArrayList<Integer> arrayList, int target){
-        return canSum(arrayList, target);
+    public static  boolean canSum(ArrayList<Integer> list, int target){
+        var memo = new HashMap<Integer, Boolean>();
+        return canSum(list, target);
     }
 
-
-    private static boolean canSum(ArrayList<Integer> list, int target){
+    private static boolean canSum(ArrayList<Integer> list, int target, HashMap<Integer,Boolean> memo ){
+        if(memo.containsKey(target)) return memo.get(target);
         if(target == 0) return true;
         if(target< 0 ) return false;
 
+        for(int number: list){
+            System.out.println(number);
+            int remainder = target - number;
+            if(canSum(list, remainder)){
+                memo.put(target, true);
+                return true;
+            }
+        }
+        memo.put(target, false);
+        return  false;
     }
 
     private static long fibronacci(int n, HashMap<Integer, Long> map){
@@ -35,7 +45,7 @@ public class DPUtils {
     }
 
     private static long gridTraveler(int m, int n, HashMap<String,Long> map){
-        String key =  String.valueOf(m) + "," + String.valueOf(n);
+        String key = m + "," + n;
         if(map.containsKey(key)) return map.get(key);
         System.out.println(key);
         if( m == 1) return 1;

@@ -1,5 +1,8 @@
 package com.company.misan;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -33,6 +36,8 @@ public class Main {
 //        System.out.println(tree.maxRecurision());
 //        System.out.println(DPUtils.fibronacci(7));
 //        System.out.println(DPUtils.gridTraveler(18, 18));
+        var list = new ArrayList<>(Arrays.asList(2, 3, 5));
+        System.out.println(DPUtils.canSum(list,8));
 
 
     }
