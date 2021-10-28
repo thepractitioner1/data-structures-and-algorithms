@@ -1,7 +1,9 @@
 package com.company.misan;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 public class DPUtils {
     public static long fibronacci(int n){
@@ -17,6 +19,29 @@ public class DPUtils {
     public static  boolean canSum(ArrayList<Integer> list, int target){
         var memo = new HashMap<Integer, Boolean>();
         return canSum(list, target);
+    }
+
+    public static ArrayList<Integer> howSum(ArrayList<Integer> list, int target){
+        var memo = new HashMap<Integer, ArrayList<Integer>>();
+        return howSum(list, target, memo);
+    }
+
+    private static ArrayList<Integer> howSum(ArrayList<Integer> list, int target, HashMap<Integer,ArrayList<Integer>> memo ){
+        if(memo.containsKey(target)) return memo.get(target);
+        if(target == 0) return new ArrayList<Integer>();
+        if(target< 0 ) return null;
+
+        for(int number: list){
+            int remainder= target - number;
+            ArrayList<Integer> remainderResult = howSum(list, remainder, memo);
+            if(remainderResult != null){
+                 remainderResult.add(number);
+                 memo.put(target, remainderResult);
+                 return remainderResult;
+            }
+        }
+        memo.put(target, null);
+        return null;
     }
 
     private static boolean canSum(ArrayList<Integer> list, int target, HashMap<Integer,Boolean> memo ){

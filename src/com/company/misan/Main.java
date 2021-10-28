@@ -21,10 +21,10 @@ public class Main {
 //        tree.insert(8);
 //        tree.insert(10);
 
-        var avlTrees = new AVLTrees();
-        avlTrees.insert(10);
-        avlTrees.insert(20);
-        avlTrees.insert(15);
+//        var avlTrees = new AVLTrees();
+//        avlTrees.insert(10);
+//        avlTrees.insert(20);
+//        avlTrees.insert(15);
 
 //        System.out.println(tree.find(10));
 //        tree.traversePostOrder();
@@ -36,8 +36,8 @@ public class Main {
 //        System.out.println(tree.maxRecurision());
 //        System.out.println(DPUtils.fibronacci(7));
 //        System.out.println(DPUtils.gridTraveler(18, 18));
-        var list = new ArrayList<>(Arrays.asList(2, 3, 5));
-        System.out.println(DPUtils.canSum(list,8));
+        var list = new ArrayList<>(Arrays.asList( 6, 14));
+        System.out.println(DPUtils.howSum(list,300));
 
 
     }
