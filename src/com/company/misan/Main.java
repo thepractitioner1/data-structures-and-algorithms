@@ -1,5 +1,7 @@
 package com.company.misan;
 
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -41,11 +43,17 @@ public class Main {
             heap.insert(array[i]);
         }
 
-        System.out.println(heap);
-        heap.remove();
-        System.out.println(heap);
-        heap.remove();
-        System.out.println(heap);
+        for(int i =0; i<array.length; i++){
+//            System.out.println(i);
+            array [i] = heap.remove();
+        }
+        System.out.println(Arrays.toString(array));
+
+//        System.out.println(heap);
+//        heap.remove();
+//        System.out.println(heap);
+//        heap.remove();
+//        System.out.println(heap);
 
 
     }

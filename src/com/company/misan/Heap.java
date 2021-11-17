@@ -13,10 +13,13 @@ public class Heap {
         bubbleUp(size - 1);
     }
 
-    public void remove(){
+    public int remove(){
         if(size == 0) throw new IllegalStateException("Heap is empty.");
+        var item = intItems[0];
         swapItem(0, --size);
         bubbleDown(0);
+
+        return item;
     }
 
     public boolean isFull(){
@@ -29,13 +32,37 @@ public class Heap {
     }
 
     private void bubbleDown(int index){
-        var leftNode = (index * 2) + 1;
-        var rightNode = (index * 2) + 2;
 
-        if(rightNode > size - 1 || leftNode > size - 1 ||(intItems[leftNode] <= intItems[index] && intItems[rightNode] <= intItems[index]) ) return;
-        var swapIndex = intItems[leftNode] < intItems[rightNode] ? rightNode : leftNode;
+
+        if(isValidParent(index)) return;
+        var swapIndex = getLargerChild(index);
         swapItem(swapIndex, index);
         bubbleDown(swapIndex);
+    }
+
+    private boolean isValidParent(int index){
+
+        var leftNode = (index * 2) + 1;
+        var rightNode = (index * 2) + 2;
+        if(leftNode >= size){
+            return true;
+        }
+        if(rightNode>=size){
+            return intItems[leftNode]<= intItems[index];
+        }
+
+        return intItems[leftNode] <= intItems[index] && intItems[rightNode] <= intItems[index];
+    }
+    private int getLargerChild(int index ){
+        var leftNode = (index * 2) + 1;
+        var rightNode = (index * 2) + 2;
+        if(leftNode >= size){
+            return index;
+        }
+        if(rightNode>= size){
+            return leftNode;
+        }
+        return intItems[leftNode] < intItems[rightNode] ? rightNode : leftNode;
     }
 
 
