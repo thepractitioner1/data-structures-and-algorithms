@@ -1,8 +1,5 @@
 package com.company.misan;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -36,8 +33,19 @@ public class Main {
 //        System.out.println(tree.maxRecurision());
 //        System.out.println(DPUtils.fibronacci(7));
 //        System.out.println(DPUtils.gridTraveler(18, 18));
-        var list = new ArrayList<>(Arrays.asList( 6, 14));
-        System.out.println(DPUtils.howSum(list,300));
+//        var list = new ArrayList<>(Arrays.asList( 6, 14));
+//        System.out.println(DPUtils.howSum(list,300));
+        int[] array = new int[]{10,5, 17,4, 22};
+        Heap heap = new Heap();
+        for (int i = 0; i<array.length; i++){
+            heap.insert(array[i]);
+        }
+
+        System.out.println(heap);
+        heap.remove();
+        System.out.println(heap);
+        heap.remove();
+        System.out.println(heap);
 
 
     }
