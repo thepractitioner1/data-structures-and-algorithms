@@ -43,7 +43,6 @@ public class Main {
 
         System.out.println(heap);
         heap.remove();
-        System.out.println("test");
         System.out.println(heap);
         heap.remove();
         System.out.println(heap);
