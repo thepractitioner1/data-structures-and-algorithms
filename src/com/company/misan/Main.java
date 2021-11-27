@@ -37,17 +37,22 @@ public class Main {
 //        System.out.println(DPUtils.gridTraveler(18, 18));
 //        var list = new ArrayList<>(Arrays.asList( 6, 14));
 //        System.out.println(DPUtils.howSum(list,300));
-        int[] array = new int[]{10,5, 17,4, 22};
+        int[] array = new int[]{10,5, 17,4, 22, 30, 12, 13};
+        MaxHeap.heapify(array);
+        System.out.println(Arrays.toString(array));
         Heap heap = new Heap();
         for (int i = 0; i<array.length; i++){
             heap.insert(array[i]);
         }
-
+        System.out.println(heap);
         for(int i =0; i<array.length; i++){
 //            System.out.println(i);
             array [i] = heap.remove();
         }
         System.out.println(Arrays.toString(array));
+
+        System.out.println(MaxHeap.kthLargestElement(array, 8));
+
 
 //        System.out.println(heap);
 //        heap.remove();
