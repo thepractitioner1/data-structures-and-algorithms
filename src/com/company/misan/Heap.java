@@ -13,6 +13,11 @@ public class Heap {
         bubbleUp(size - 1);
     }
 
+    public int max(){
+        if(size == 0) throw new IllegalStateException("Heap is empty.");
+        return intItems[0];
+    }
+
     public int remove(){
         if(size == 0) throw new IllegalStateException("Heap is empty.");
         var item = intItems[0];
@@ -81,6 +86,29 @@ public class Heap {
 
     private int getParent(int index) {
         return (index - 1) / 2;
+    }
+
+
+    public static boolean isMaxHeap(int[] array) {
+        return isMaxHeap(array, 0);
+    }
+
+    private static boolean isMaxHeap(int[] array, int index) {
+        // All leaf nodes are valid
+        var lastParentIndex = (array.length - 2) / 2;
+        if (index > lastParentIndex)
+            return true;
+
+        var leftChildIndex = index * 2 + 1;
+        var rightChildIndex = index * 2 + 2;
+
+        var isValidParent =
+                array[index] >= array[leftChildIndex] &&
+                        array[index] >= array[rightChildIndex];
+
+        return isValidParent &&
+                isMaxHeap(array, leftChildIndex) &&
+                isMaxHeap(array, rightChildIndex);
     }
 
 
