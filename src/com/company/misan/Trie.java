@@ -1,5 +1,6 @@
 package com.company.misan;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Trie {
@@ -96,6 +97,35 @@ public class Trie {
 
         remove(word, count + 1, child);
         if (!child.hasChildren() && !child.isEndOfWord()) root.removeChild(ch);
+    }
+
+    public ArrayList<String> findWords(String prefix){
+        var list = new ArrayList<String>();
+        var lastNode = findLastNode(prefix);
+        findWords(lastNode, prefix, list);
+        return list;
+    }
+
+
+    private void findWords(Node lastNode, String prefix, ArrayList<String> list){
+        if (lastNode == null) return;
+        if(lastNode.isEndOfWord) list.add(prefix);
+        var children = lastNode.getChildren();
+        for(var child: children){
+            findWords(child, prefix + child.value, list);
+        }
+    }
+
+    private Node findLastNode(String prefix){
+        if(prefix == null) return null;
+        var current = root;
+        for(var ch: prefix.toCharArray()){
+            var child = current.getChild(ch);
+            if(child == null) return null;
+            current = child;
+        }
+
+        return current;
     }
 
     private void traverse(Node root) {
