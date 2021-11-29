@@ -46,10 +46,9 @@ public class Trie {
                 var node = new Node(val);
                 current.addChild(val, node);
             }
-            current = current.getChild(val);
+            current = current.getChild(val)
         }
         current.setEndOfWord(true);
     }
-
 }
 
