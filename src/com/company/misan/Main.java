@@ -73,12 +73,13 @@ public class Main {
         trie.insert("pickle");
 
         System.out.println(trie.contains("pickle"));
-        trie.remove("pickle");
+        trie.remove("border");
         System.out.println(trie.contains("boy"));
         trie.remove("boy");
-        System.out.println(trie.contains("pickle"));
+        trie.remove("book");
         System.out.println(trie.contains("boy"));
         System.out.println(trie.contains("border"));
+        System.out.println(trie.findWords("bo"));
 
 
     }
