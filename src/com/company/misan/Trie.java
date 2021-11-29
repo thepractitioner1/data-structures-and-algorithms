@@ -50,5 +50,18 @@ public class Trie {
         }
         current.setEndOfWord(true);
     }
+
+    public boolean contains(String word){
+        var current = root;
+        if(word == null) return false;
+
+        for(int i = 0; i<word.length(); i++){
+            char val = word.charAt(i);
+            if(!current.containsChild(val)) return false;
+            current = current.getChild(val);
+        }
+
+        return current.isEndOfWord();
+    }
 }
 
