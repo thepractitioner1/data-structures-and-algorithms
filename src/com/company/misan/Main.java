@@ -73,7 +73,12 @@ public class Main {
         trie.insert("pickle");
 
         System.out.println(trie.contains("pickle"));
-        trie.traverse();
+        trie.remove("pickle");
+        System.out.println(trie.contains("boy"));
+        trie.remove("boy");
+        System.out.println(trie.contains("pickle"));
+        System.out.println(trie.contains("boy"));
+        System.out.println(trie.contains("border"));
 
 
     }
