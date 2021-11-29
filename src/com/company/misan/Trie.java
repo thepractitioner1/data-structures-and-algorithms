@@ -4,8 +4,6 @@ import java.util.HashMap;
 
 public class Trie {
 
-    public static int ALPHABET_SIZE = 26;
-
     private class Node {
         private char value;
         private HashMap<Character, Node> children = new HashMap<>();
@@ -31,12 +29,20 @@ public class Trie {
             return children.get(value);
         }
 
+        public boolean hasChildren() {
+            return !children.isEmpty();
+        }
+
         public Node[] getChildren() {
             return children.values().toArray(new Node[0]);
         }
 
         public void setEndOfWord(boolean endOfWord) {
             isEndOfWord = endOfWord;
+        }
+
+        public void removeChild(char value) {
+            children.remove(value);
         }
     }
 
@@ -70,6 +76,26 @@ public class Trie {
 
     public void traverse() {
         traverse(root);
+    }
+
+    public void remove(String word) {
+        if (word == null) return;
+        remove(word, 0, root);
+    }
+
+    private void remove(String word, int count, Node root) {
+
+        if (count == word.length()) {
+            root.setEndOfWord(false);
+            return;
+        }
+        var ch = word.charAt(count);
+        var child = root.getChild(ch);
+
+        if (child == null) return;
+
+        remove(word, count + 1, child);
+        if (!child.hasChildren() && !child.isEndOfWord()) root.removeChild(ch);
     }
 
     private void traverse(Node root) {
