@@ -72,7 +72,8 @@ public class Main {
         trie.insert("figure");
         trie.insert("pickle");
 
-        System.out.println(trie.contains(null));
+        System.out.println(trie.contains("pickle"));
+        trie.traverse();
 
 
     }
