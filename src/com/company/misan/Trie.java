@@ -31,6 +31,10 @@ public class Trie {
             return children.get(value);
         }
 
+        public Node[] getChildren() {
+            return children.values().toArray(new Node[0]);
+        }
+
         public void setEndOfWord(boolean endOfWord) {
             isEndOfWord = endOfWord;
         }
@@ -51,17 +55,31 @@ public class Trie {
         current.setEndOfWord(true);
     }
 
-    public boolean contains(String word){
+    public boolean contains(String word) {
         var current = root;
-        if(word == null) return false;
+        if (word == null) return false;
 
-        for(int i = 0; i<word.length(); i++){
+        for (int i = 0; i < word.length(); i++) {
             char val = word.charAt(i);
-            if(!current.containsChild(val)) return false;
+            if (!current.containsChild(val)) return false;
             current = current.getChild(val);
         }
 
         return current.isEndOfWord();
+    }
+
+    public void traverse() {
+        traverse(root);
+    }
+
+    private void traverse(Node root) {
+        // pre-order traversal implementation
+        System.out.println(root.value);
+        for (var child : root.getChildren()) traverse(child);
+
+        // post-order traversal implementation
+//        for(var child : root.getChildren()) traverse(child);
+//        System.out.println(root.value);
     }
 }
 
