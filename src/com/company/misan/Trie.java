@@ -1,33 +1,18 @@
 package com.company.misan;
 
+import java.util.HashMap;
+
 public class Trie {
 
     public static int ALPHABET_SIZE = 26;
 
     private class Node {
-        char value;
-        Node[] children = new Node[ALPHABET_SIZE];
-        boolean isEndOfWord;
+        private char value;
+        private HashMap<Character, Node> children = new HashMap<>();
+        private boolean isEndOfWord;
 
         public Node(char value) {
             this.value = value;
-        }
-
-        public char getValue() {
-            return value;
-        }
-
-
-        public void setValue(char value) {
-            this.value = value;
-        }
-
-        public Node[] getChildren() {
-            return children;
-        }
-
-        public void setChildren(Node[] children) {
-            this.children = children;
         }
 
         public boolean isEndOfWord() {
@@ -35,11 +20,15 @@ public class Trie {
         }
 
         public boolean containsChild(char value) {
-            return children[getChildIndex(value)] != null;
+            return children.containsKey(value);
         }
 
-        public void addChild (int index, Node node){
-            children[index] = node;
+        public void addChild(char value, Node node) {
+            children.put(value, node);
+        }
+
+        public Node getChild(char value) {
+            return children.get(value);
         }
 
         public void setEndOfWord(boolean endOfWord) {
@@ -55,16 +44,11 @@ public class Trie {
             char val = word.charAt(i);
             if (!current.containsChild(val)) {
                 var node = new Node(val);
-                current.addChild(getChildIndex(val), node);
+                current.addChild(val, node);
             }
-            current = current.children[getChildIndex(val)];
+            current = current.getChild(val)
         }
         current.setEndOfWord(true);
     }
-
-    private int getChildIndex(char val){
-        return val - 'a';
-    }
-
 }
 
