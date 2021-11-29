@@ -72,7 +72,7 @@ public class Main {
         trie.insert("figure");
         trie.insert("pickle");
 
-        System.out.println(trie.contains("doc"));
+        System.out.println(trie.contains(null));
 
 
     }
