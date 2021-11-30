@@ -37,6 +37,7 @@ public class Main {
 //        System.out.println(DPUtils.gridTraveler(18, 18));
 //        var list = new ArrayList<>(Arrays.asList( 6, 14));
 //        System.out.println(DPUtils.howSum(list,300));
+
 //        int[] array = new int[]{10,5, 17,4, 22, 30, 12, 13};
 //        MaxHeap.heapify(array);
 //        System.out.println(Arrays.toString(array));
@@ -54,11 +55,14 @@ public class Main {
 //        System.out.println(MaxHeap.kthLargestElement(array, 8));
 
 
+
 //        System.out.println(heap);
 //        heap.remove();
 //        System.out.println(heap);
 //        heap.remove();
 //        System.out.println(heap);
+
+
 
         var trie = new Trie();
         trie.insert("boy");
@@ -72,16 +76,14 @@ public class Main {
         trie.insert("figure");
         trie.insert("pickle");
 
-
-//        System.out.println(trie.contains("pickle"));
-//        trie.remove("border");
-//        System.out.println(trie.contains("boy"));
-//          trie.remove("boy");
-//        trie.remove("book");
-//        System.out.println(trie.contains("boy"));
-//        System.out.println(trie.contains("border"));
-        System.out.println(trie.findWords("f"));
-        System.out.println(trie.containsRecursive(""));
+        System.out.println(trie.contains("pickle"));
+        trie.remove("border");
+        System.out.println(trie.contains("boy"));
+        trie.remove("boy");
+        trie.remove("book");
+        System.out.println(trie.contains("boy"));
+        System.out.println(trie.contains("border"));
+        System.out.println(trie.findWords("bo"));
 
 
 
