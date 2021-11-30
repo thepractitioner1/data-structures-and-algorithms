@@ -63,7 +63,6 @@ public class Main {
 //        System.out.println(heap);
 
 
-
         var trie = new Trie();
         trie.insert("boy");
         trie.insert("book");

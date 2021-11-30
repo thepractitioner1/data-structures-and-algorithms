@@ -76,10 +76,12 @@ public class Trie {
     }
 
 
+
     public boolean containsRecursive(String word){
         if(word == null) return false;
         return containsRecursive(root, word, 0);
     }
+
 
     public void traverse() {
         traverse(root);
@@ -91,6 +93,7 @@ public class Trie {
     }
 
 
+
     private boolean containsRecursive(Node root, String word, int count){
         if(count == word.length()) {
             return root.isEndOfWord();
@@ -100,6 +103,7 @@ public class Trie {
         if(child == null) return false;
         return containsRecursive(child, word, ++count);
     }
+
 
     private void remove(String word, int count, Node root) {
 
@@ -123,13 +127,10 @@ public class Trie {
         return list;
     }
 
-
-
     public int countWords(){
        return countWords(root);
 
     }
-
 
     private void findWords(Node lastNode, String prefix, ArrayList<String> list){
         if (lastNode == null) return;
@@ -163,6 +164,7 @@ public class Trie {
     }
 
 
+
     private int countWords(Node root){
        var total = 0;
 
@@ -173,5 +175,6 @@ public class Trie {
 
         return total;
     }
+
 }
 
