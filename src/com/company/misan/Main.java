@@ -37,21 +37,21 @@ public class Main {
 //        System.out.println(DPUtils.gridTraveler(18, 18));
 //        var list = new ArrayList<>(Arrays.asList( 6, 14));
 //        System.out.println(DPUtils.howSum(list,300));
-        int[] array = new int[]{10,5, 17,4, 22, 30, 12, 13};
-        MaxHeap.heapify(array);
-        System.out.println(Arrays.toString(array));
-        Heap heap = new Heap();
-        for (int i = 0; i<array.length; i++){
-            heap.insert(array[i]);
-        }
-        System.out.println(heap);
-        for(int i =0; i<array.length; i++){
-//            System.out.println(i);
-            array [i] = heap.remove();
-        }
-        System.out.println(Arrays.toString(array));
-
-        System.out.println(MaxHeap.kthLargestElement(array, 8));
+//        int[] array = new int[]{10,5, 17,4, 22, 30, 12, 13};
+//        MaxHeap.heapify(array);
+//        System.out.println(Arrays.toString(array));
+//        Heap heap = new Heap();
+//        for (int i = 0; i<array.length; i++){
+//            heap.insert(array[i]);
+//        }
+//        System.out.println(heap);
+//        for(int i =0; i<array.length; i++){
+////            System.out.println(i);
+//            array [i] = heap.remove();
+//        }
+//        System.out.println(Arrays.toString(array));
+//
+//        System.out.println(MaxHeap.kthLargestElement(array, 8));
 
 
 //        System.out.println(heap);
@@ -59,6 +59,27 @@ public class Main {
 //        System.out.println(heap);
 //        heap.remove();
 //        System.out.println(heap);
+
+        var trie = new Trie();
+        trie.insert("boy");
+        trie.insert("book");
+        trie.insert("border");
+        trie.insert("cat");
+        trie.insert("dog");
+        trie.insert("doctor");
+        trie.insert("picture");
+        trie.insert("finest");
+        trie.insert("figure");
+        trie.insert("pickle");
+
+        System.out.println(trie.contains("pickle"));
+        trie.remove("border");
+        System.out.println(trie.contains("boy"));
+        trie.remove("boy");
+        trie.remove("book");
+        System.out.println(trie.contains("boy"));
+        System.out.println(trie.contains("border"));
+        System.out.println(trie.findWords("bo"));
 
 
     }
