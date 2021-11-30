@@ -72,14 +72,15 @@ public class Main {
         trie.insert("figure");
         trie.insert("pickle");
 
-        System.out.println(trie.contains("pickle"));
-        trie.remove("border");
-        System.out.println(trie.contains("boy"));
-        trie.remove("boy");
-        trie.remove("book");
-        System.out.println(trie.contains("boy"));
-        System.out.println(trie.contains("border"));
-        System.out.println(trie.findWords("bo"));
+//        System.out.println(trie.contains("pickle"));
+//        trie.remove("border");
+//        System.out.println(trie.contains("boy"));
+//          trie.remove("boy");
+//        trie.remove("book");
+//        System.out.println(trie.contains("boy"));
+//        System.out.println(trie.contains("border"));
+        System.out.println(trie.findWords("f"));
+        System.out.println(trie.containsRecursive(""));
 
 
     }
