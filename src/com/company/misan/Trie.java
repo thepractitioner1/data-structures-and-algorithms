@@ -121,6 +121,7 @@ public class Trie {
         return list;
     }
 
+
     public int countWords(){
        return countWords(root);
 
