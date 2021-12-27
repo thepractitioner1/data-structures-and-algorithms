@@ -82,7 +82,7 @@ public class Tree {
        return size(root);
     }
 
-    public int maxRecurision(){
+    public int maxRecursion(){
        return maxRecursion(root);
     }
 
