@@ -1,10 +1,30 @@
 package com.company.misan;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Stack;
 
 public class Main {
 
     public static void main(String[] args) {
+//        HashMap<Integer, Integer> cache = new HashMap<>();
+//        cache.put(1,1);
+//        cache.put(1,2);
+//        System.out.println(cache);
+//
+//        var list = new LinkedList();
+//        list.addFirst(20);
+//        list.addLast(30);
+//        list.addLast(40);
+//        list.addLast(50);
+//        list.deleteFirst();
+//        list.deleteFirst();
+//        list.deleteFirst();
+//
+//        var stack = new Stack();
+//        list.deleteFirst();
+//        System.out.println(Arrays.toString(list.toArray()));
+
 
 //        var tree = new Tree();
 //        Integer[] myArray = new Integer[] {1, 7, 5, 9, 2, 12, 3};
@@ -63,26 +83,67 @@ public class Main {
 //        System.out.println(heap);
 
 
-        var trie = new Trie();
-        trie.insert("boy");
-        trie.insert("book");
-        trie.insert("border");
-        trie.insert("cat");
-        trie.insert("dog");
-        trie.insert("doctor");
-        trie.insert("picture");
-        trie.insert("finest");
-        trie.insert("figure");
-        trie.insert("pickle");
+//        var trie = new Trie();
+//        trie.insert("boy");
+//        trie.insert("book");
+//        trie.insert("border");
+//        trie.insert("cat");
+//        trie.insert("dog");
+//        trie.insert("doctor");
+//        trie.insert("picture");
+//        trie.insert("finest");
+//        trie.insert("figure");
+//        trie.insert("pickle");
+//
+//        System.out.println(trie.contains("pickle"));
+//        trie.remove("border");
+//        System.out.println(trie.contains("boy"));
+//        trie.remove("boy");
+//        trie.remove("book");
+//        System.out.println(trie.contains("boy"));
+//        System.out.println(trie.contains("border"));
+//        System.out.println(trie.findWords("bo"));
 
-        System.out.println(trie.contains("pickle"));
-        trie.remove("border");
-        System.out.println(trie.contains("boy"));
-        trie.remove("boy");
-        trie.remove("book");
-        System.out.println(trie.contains("boy"));
-        System.out.println(trie.contains("border"));
-        System.out.println(trie.findWords("bo"));
+
+
+//        ["UndergroundSystem","checkIn","checkOut","getAverageTime","checkIn","checkOut","getAverageTime","checkIn","checkOut","getAverageTime"]
+//[[],[10,"Leyton",3],[10,"Paradise",8],["Leyton","Paradise"],[5,"Leyton",10],[5,"Paradise",16],["Leyton","Paradise"],[2,"Leyton",21],[2,"Paradise",30],["Leyton","Paradise"]]
+        UndergroundSystem undergroundSystem = new UndergroundSystem();
+        undergroundSystem.checkIn(10, "Leyton", 3);
+        undergroundSystem.checkOut(10, "Paradise", 8);
+        System.out.println(undergroundSystem.getAverageTime("Leyton","Paradise"));
+        undergroundSystem.checkIn(5, "Leyton", 10);
+        undergroundSystem.checkOut(5, "Paradise", 16);
+        System.out.println(undergroundSystem.getAverageTime("Leyton","Paradise"));
+        undergroundSystem.checkIn(2, "Leyton", 21);
+        undergroundSystem.checkOut(2, "Paradise", 30);
+        System.out.println(undergroundSystem.getAverageTime("Leyton","Paradise"));
+
+
+//
+["BrowserHistory","forward","forward","visit","visit","back","visit","visit","visit","visit","visit","forward","visit","back","visit","visit","forward","visit","back","visit","forward","visit","back","back","visit","visit","back","visit","back","visit","visit","visit","back","back","forward","visit"]
+[["spzn.com"],[6],[3],["yglghy.com"],["bdsrnfr.com"],[5],["ei.com"],["expmyxq.com"],["ue.com"],["thkhs.com"],["laoy.com"],[6],["fdzqi.com"],[3],["wdh.com"],["nsxsf.com"],[9],["pqeqm.com"],[4],["yyfhv.com"],[3],["tvidl.com"],[8],[9],["ifn.com"],["fqaock.com"],[7],["ow.com"],[1],["fdg.com"],["xsub.com"],["cxmc.com"],[3],[7],[10],["omsh.com"]]
+        BrowserHistory myBrowserHistory = new BrowserHistory("hdqqhm.com");
+        myBrowserHistory.visit("yltqtsj.com");
+        System.out.println(myBrowserHistory.forward(1));
+        System.out.println(myBrowserHistory.back(1));
+        myBrowserHistory.visit("cyv.com");
+        myBrowserHistory.visit("vbpvni.com");
+        myBrowserHistory.visit("opy.com");
+        myBrowserHistory.visit("kbyzp.com");
+        System.out.println(myBrowserHistory.back(7));
+        myBrowserHistory.visit("fchhxaz.com");
+        System.out.println(myBrowserHistory.back(6));
+        System.out.println(myBrowserHistory.forward(9));
+        myBrowserHistory.visit("rg.com");
+        myBrowserHistory.visit("oemqn.com");
+        myBrowserHistory.visit("hyqsb.com");
+
+//        System.out.println(myBrowserHistory.back(1));
+//        System.out.println(myBrowserHistory.forward(1));
+//        myBrowserHistory.visit("linkedin.com");
+//        System.out.println(myBrowserHistory.forward(2));
+//        System.out.println(myBrowserHistory.back(2));
 
 
 

@@ -53,9 +53,10 @@ public class LinkedList {
         if(first == last){
             first = last = null;
         }else{
-            second = first.next;
-            first.next = null;
-            first = second;
+            first = first.next;
+//            second = first.next;
+//            first.next = null;
+//            first = second;
         }
         size--;
     }
