@@ -105,46 +105,26 @@ public class Main {
 //        System.out.println(trie.findWords("bo"));
 
 
-
-//        ["UndergroundSystem","checkIn","checkOut","getAverageTime","checkIn","checkOut","getAverageTime","checkIn","checkOut","getAverageTime"]
-//[[],[10,"Leyton",3],[10,"Paradise",8],["Leyton","Paradise"],[5,"Leyton",10],[5,"Paradise",16],["Leyton","Paradise"],[2,"Leyton",21],[2,"Paradise",30],["Leyton","Paradise"]]
-        UndergroundSystem undergroundSystem = new UndergroundSystem();
-        undergroundSystem.checkIn(10, "Leyton", 3);
-        undergroundSystem.checkOut(10, "Paradise", 8);
-        System.out.println(undergroundSystem.getAverageTime("Leyton","Paradise"));
-        undergroundSystem.checkIn(5, "Leyton", 10);
-        undergroundSystem.checkOut(5, "Paradise", 16);
-        System.out.println(undergroundSystem.getAverageTime("Leyton","Paradise"));
-        undergroundSystem.checkIn(2, "Leyton", 21);
-        undergroundSystem.checkOut(2, "Paradise", 30);
-        System.out.println(undergroundSystem.getAverageTime("Leyton","Paradise"));
-
-
 //
-["BrowserHistory","forward","forward","visit","visit","back","visit","visit","visit","visit","visit","forward","visit","back","visit","visit","forward","visit","back","visit","forward","visit","back","back","visit","visit","back","visit","back","visit","visit","visit","back","back","forward","visit"]
-[["spzn.com"],[6],[3],["yglghy.com"],["bdsrnfr.com"],[5],["ei.com"],["expmyxq.com"],["ue.com"],["thkhs.com"],["laoy.com"],[6],["fdzqi.com"],[3],["wdh.com"],["nsxsf.com"],[9],["pqeqm.com"],[4],["yyfhv.com"],[3],["tvidl.com"],[8],[9],["ifn.com"],["fqaock.com"],[7],["ow.com"],[1],["fdg.com"],["xsub.com"],["cxmc.com"],[3],[7],[10],["omsh.com"]]
-        BrowserHistory myBrowserHistory = new BrowserHistory("hdqqhm.com");
-        myBrowserHistory.visit("yltqtsj.com");
-        System.out.println(myBrowserHistory.forward(1));
-        System.out.println(myBrowserHistory.back(1));
-        myBrowserHistory.visit("cyv.com");
-        myBrowserHistory.visit("vbpvni.com");
-        myBrowserHistory.visit("opy.com");
-        myBrowserHistory.visit("kbyzp.com");
-        System.out.println(myBrowserHistory.back(7));
-        myBrowserHistory.visit("fchhxaz.com");
-        System.out.println(myBrowserHistory.back(6));
-        System.out.println(myBrowserHistory.forward(9));
-        myBrowserHistory.visit("rg.com");
-        myBrowserHistory.visit("oemqn.com");
-        myBrowserHistory.visit("hyqsb.com");
-
 //        System.out.println(myBrowserHistory.back(1));
 //        System.out.println(myBrowserHistory.forward(1));
 //        myBrowserHistory.visit("linkedin.com");
 //        System.out.println(myBrowserHistory.forward(2));
 //        System.out.println(myBrowserHistory.back(2));
 
+
+        Graph mygraph = new Graph();
+        mygraph.addNode("A");
+        mygraph.addNode("B");
+        mygraph.addNode("C");
+        mygraph.addNode("D");
+
+        mygraph.addEdges("A", "B");
+        mygraph.addEdges("A", "C");
+        mygraph.addEdges("B", "D");
+        mygraph.addEdges("D", "C");
+
+        mygraph.breadthFirstSearch("A");
 
 
     }
