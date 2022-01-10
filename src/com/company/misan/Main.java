@@ -124,7 +124,7 @@ public class Main {
         mygraph.addEdges("B", "D");
         mygraph.addEdges("D", "C");
 
-        mygraph.depthFirstSearchIter("A");
+        mygraph.breadthFirstSearch("A");
 
 
     }

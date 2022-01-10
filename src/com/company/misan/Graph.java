@@ -92,9 +92,31 @@ public class Graph {
             if(visited.contains(current)) continue;
             System.out.println(current);
             visited.add(current);
-            var children = AdjacencyList.get(current);
-            for(Node child: children){
-                if(!visited.contains(child))  stack.push(child);
+            var neighbours = AdjacencyList.get(current);
+            for(Node neighbour: neighbours){
+                if(!visited.contains(neighbour))  stack.push(neighbour);
+            }
+        }
+    }
+
+    public void breadthFirstSearch(String root){
+        var node = Nodes.get(root);
+        var queue = new ArrayDeque<Node>();
+        var visited = new HashSet<Node>();
+        if(node == null) return;
+
+        queue.add(node);
+
+
+
+        while (!queue.isEmpty()){
+            var current = queue.remove() ;
+            if(visited.contains(current)) continue;
+            System.out.println(current);
+            visited.add(current);
+            var neighbours = AdjacencyList.get(current);
+            for(Node neighbour: neighbours){
+                if(!visited.contains(neighbour))  queue.add(neighbour);
             }
         }
     }
@@ -102,12 +124,10 @@ public class Graph {
     private void depthFirstSearchRec(Node node, Set<Node> visited){
         visited.add(node);
         System.out.println(node);
-        var children = AdjacencyList.get(node);
-        for(Node child: children){
-            if(visited.contains(child)) continue;
-            depthFirstSearchRec(child, visited);
+        var neighbours = AdjacencyList.get(node);
+        for(Node neighbour: neighbours){
+            if(visited.contains(neighbour)) continue;
+            depthFirstSearchRec(neighbour, visited);
         }
     }
-
-
 }
