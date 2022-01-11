@@ -69,6 +69,33 @@ public class Graph {
         AdjacencyList.get(fromNode).remove(toNode);
     }
 
+    public List<String> topologicalSort(){
+        var set = new HashSet<Node>();
+        var list = new ArrayList<String>();
+        var stack = new Stack<Node>();
+        for(Node node : AdjacencyList.keySet()){
+            System.out.println(node);
+            topologicalSort(node, set, stack);
+        }
+
+
+        while (!stack.isEmpty()){
+            list.add(stack.pop().label);
+        }
+        return  list;
+    }
+
+
+
+    private void topologicalSort(Node node, Set<Node> visited, Stack<Node> stack){
+        if(visited.contains(node)) return;
+        visited.add(node);
+        for(Node neighbour: AdjacencyList.get(node)){
+            topologicalSort(neighbour, visited, stack);
+        }
+        stack.push(node);
+    }
+
 
     public void depthFirstSearchRec(String root){
         var node = Nodes.get(root);
@@ -130,4 +157,6 @@ public class Graph {
             depthFirstSearchRec(neighbour, visited);
         }
     }
+
+
 }
