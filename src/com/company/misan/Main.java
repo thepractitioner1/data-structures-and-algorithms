@@ -114,17 +114,17 @@ public class Main {
 
 
         Graph mygraph = new Graph();
+        mygraph.addNode("X");
         mygraph.addNode("A");
         mygraph.addNode("B");
-        mygraph.addNode("C");
-        mygraph.addNode("D");
+        mygraph.addNode("P");
 
-        mygraph.addEdges("A", "B");
-        mygraph.addEdges("A", "C");
-        mygraph.addEdges("B", "D");
-        mygraph.addEdges("D", "C");
+        mygraph.addEdges("X", "A");
+        mygraph.addEdges("X", "B");
+        mygraph.addEdges("A", "P");
+        mygraph.addEdges("B", "P");
 
-        mygraph.breadthFirstSearch("A");
+        System.out.println(mygraph.topologicalSort());
 
 
     }
