@@ -114,17 +114,23 @@ public class Main {
 
 
         Graph mygraph = new Graph();
-        mygraph.addNode("X");
+//        mygraph.addNode("X");
+//        mygraph.addNode("A");
+//        mygraph.addNode("B");
+//        mygraph.addNode("P");
+
         mygraph.addNode("A");
         mygraph.addNode("B");
-        mygraph.addNode("P");
+        mygraph.addNode("C");
+        mygraph.addNode("D");
 
-        mygraph.addEdges("X", "A");
-        mygraph.addEdges("X", "B");
-        mygraph.addEdges("A", "P");
-        mygraph.addEdges("B", "P");
-
+        mygraph.addEdges("A", "B");
+//        mygraph.addEdges("A", "P");
+        mygraph.addEdges("B", "C");
+        mygraph.addEdges("C", "D");
+        mygraph.addEdges("D", "A");
         System.out.println(mygraph.topologicalSort());
+        System.out.println(mygraph.hasCycle());
 
 
     }

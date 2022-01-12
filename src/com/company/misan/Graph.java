@@ -86,17 +86,6 @@ public class Graph {
     }
 
 
-
-    private void topologicalSort(Node node, Set<Node> visited, Stack<Node> stack){
-        if(visited.contains(node)) return;
-        visited.add(node);
-        for(Node neighbour: AdjacencyList.get(node)){
-            topologicalSort(neighbour, visited, stack);
-        }
-        stack.push(node);
-    }
-
-
     public void depthFirstSearchRec(String root){
         var node = Nodes.get(root);
         if(node == null) return;
@@ -148,6 +137,28 @@ public class Graph {
         }
     }
 
+
+    public boolean hasCycle(){
+        var visited = new HashSet<Node>();
+        for(Node node: AdjacencyList.keySet()){
+            if(hasCycle(node, visited)) return  true;
+        }
+        return false;
+    }
+
+    private boolean hasCycle(Node node, Set<Node> visiting){
+        if(visiting.contains(node)) return true;
+        if(AdjacencyList.get(node).isEmpty()) return false;
+        visiting.add(node);
+
+        for(Node neighbour: AdjacencyList.get(node)){
+            if(hasCycle(neighbour, visiting)) return true;
+        }
+        visiting.remove(node);
+        AdjacencyList.put(node, new ArrayList<>());
+        return false;
+    }
+
     private void depthFirstSearchRec(Node node, Set<Node> visited){
         visited.add(node);
         System.out.println(node);
@@ -156,6 +167,16 @@ public class Graph {
             if(visited.contains(neighbour)) continue;
             depthFirstSearchRec(neighbour, visited);
         }
+    }
+
+
+    private void topologicalSort(Node node, Set<Node> visited, Stack<Node> stack){
+        if(visited.contains(node)) return;
+        visited.add(node);
+        for(Node neighbour: AdjacencyList.get(node)){
+            topologicalSort(neighbour, visited, stack);
+        }
+        stack.push(node);
     }
 
 
