@@ -43,7 +43,6 @@ class UndergroundSystem {
         TimeCount timeCountEntry;
         Node customer = register.get(id); //this gets customer
 
-
          int durationBetweenCheckOut = t - customer.time; // calculates Duration
 
          String countKey = customer.stationName + "-" + stationName;
