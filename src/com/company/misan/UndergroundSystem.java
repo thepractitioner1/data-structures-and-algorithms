@@ -42,7 +42,6 @@ class UndergroundSystem {
         // hashmap for checkout
         TimeCount timeCountEntry;
         Node customer = register.get(id); //this gets customer
-        System.out.println(customer);
 
          int durationBetweenCheckOut = t - customer.time; // calculates Duration
 
